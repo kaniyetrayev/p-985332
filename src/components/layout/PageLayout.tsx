@@ -32,7 +32,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   }, []);
 
   return (
-    <div className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} min-h-screen w-full flex flex-col pb-[130px]`}>
+    <div className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} min-h-screen w-full flex flex-col`}>
       {/* Header */}
       {!hideBackButton && (showBackButton || title || rightIcon) && (
         <div className="px-6 pt-6 pb-4 flex items-center justify-between">

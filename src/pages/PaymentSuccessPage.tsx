@@ -33,48 +33,48 @@ const PaymentSuccessPage: React.FC = () => {
         />
       )}
       
-      <div className="flex flex-col items-center justify-center h-full py-12">
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-120px)] py-12">
         {/* Success circle with check */}
-        <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mb-8">
+        <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mb-8 mt-16">
           <Check className="text-white h-12 w-12" />
         </div>
         
         {/* Success text */}
-        <h1 className="text-[40px] font-semibold text-center mb-4">
+        <h1 className="text-[40px] font-bold text-center mb-4">
           Payment successful
         </h1>
         
-        <p className="text-gray-500 text-center text-[18px] mb-12 px-6">
+        <p className="text-gray-500 text-center text-[18px] mb-12 px-6 max-w-md">
           Welcome to World Connect. We've created your eSIM and you're good to go.
         </p>
+      </div>
+      
+      {/* Action buttons */}
+      <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
+        <Button
+          className="w-full py-6 rounded-full text-white text-center text-lg font-semibold bg-worldcoin-black hover:bg-black mb-4"
+          onClick={() => {
+            console.log("Activate now");
+            // Navigate to activation page or handle activation logic
+          }}
+        >
+          Activate now
+        </Button>
         
-        {/* Action buttons */}
-        <div className="fixed bottom-0 left-0 w-full px-6 flex flex-col gap-4 pb-10">
-          <Button
-            className="w-full py-6 rounded-full text-white text-center text-base font-semibold bg-worldcoin-black"
-            onClick={() => {
-              console.log("Activate now");
-              // Navigate to activation page or handle activation logic
-            }}
-          >
-            Activate now
-          </Button>
-          
-          <Button
-            variant="ghost"
-            className="w-full py-6 text-center text-base font-semibold"
-            onClick={() => {
-              console.log("Activate later");
-              navigate("/");
-            }}
-          >
-            Activate later
-          </Button>
-          
-          {/* Home indicator bar */}
-          <div className="flex justify-center w-full mt-2">
-            <div className="w-[134px] h-[5px] bg-gray-900 rounded-full"></div>
-          </div>
+        <Button
+          variant="ghost"
+          className="w-full text-center text-lg font-semibold hover:bg-transparent hover:text-black mb-6"
+          onClick={() => {
+            console.log("Activate later");
+            navigate("/");
+          }}
+        >
+          Activate later
+        </Button>
+        
+        {/* Home indicator bar */}
+        <div className="flex justify-center w-full">
+          <div className="w-[134px] h-[5px] bg-gray-900 rounded-full"></div>
         </div>
       </div>
     </PageLayout>
