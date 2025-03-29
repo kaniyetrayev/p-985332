@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { Input } from "@/components/ui/input";
 import { ChevronLeft, Info, ChevronRight } from "lucide-react";
+import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 
 const SubscribePage: React.FC = () => {
   const navigate = useNavigate();
@@ -23,19 +24,13 @@ const SubscribePage: React.FC = () => {
     navigate('/');
   };
 
-  const handleContinue = () => {
-    console.log("Continue with phone number:", phoneNumber);
-    // Here we would handle the actual subscription logic
-    navigate('/');
-  };
-
   const handleChooseAnother = () => {
     // In a real app, this would open a phone number selection UI
     console.log("Choose another number");
   };
 
   return (
-    <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} min-h-screen w-full flex flex-col`}>
+    <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} min-h-screen w-full flex flex-col pb-[130px]`}>
       {/* Header */}
       <div className="px-6 pt-6 pb-4 flex justify-between items-center">
         <button 
@@ -84,18 +79,7 @@ const SubscribePage: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <div className="p-6 pb-16">
-        <button 
-          onClick={handleContinue}
-          className={`w-full py-4 rounded-full text-white text-center text-base font-semibold ${
-            isWorldApp 
-              ? "bg-[#3D7DFF]" 
-              : "bg-[#191C20]"
-          }`}
-        >
-          Continue
-        </button>
-      </div>
+      <MarketingFooter />
     </div>
   );
 };
