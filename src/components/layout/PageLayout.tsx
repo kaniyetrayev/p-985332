@@ -8,6 +8,7 @@ interface PageLayoutProps {
   title?: string;
   showBackButton?: boolean;
   hideBackButton?: boolean;
+  hideTitle?: boolean;
   onBackClick?: () => void;
   rightIcon?: ReactNode;
 }
@@ -17,6 +18,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   title,
   showBackButton = false,
   hideBackButton = false,
+  hideTitle = false,
   onBackClick,
   rightIcon,
 }) => {
@@ -57,8 +59,8 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
         </div>
       )}
 
-      {/* Title shown only on hideBackButton pages like payment success */}
-      {hideBackButton && title && (
+      {/* Title shown only on hideBackButton pages like payment success, unless hideTitle is true */}
+      {hideBackButton && title && !hideTitle && (
         <div className="pt-8 text-center">
           <h1 className="text-2xl font-bold">{title}</h1>
         </div>

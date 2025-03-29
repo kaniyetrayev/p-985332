@@ -43,7 +43,7 @@ const PaymentSuccessPage: React.FC = () => {
   };
 
   return (
-    <PageLayout hideBackButton={true} title="Payment successful">
+    <PageLayout hideBackButton={true} hideTitle={true}>
       {confettiActive && (
         <Confetti
           width={width}
