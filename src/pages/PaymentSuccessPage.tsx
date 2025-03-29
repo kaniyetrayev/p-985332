@@ -54,7 +54,7 @@ const PaymentSuccessPage: React.FC = () => {
         />
       )}
       
-      <div className="flex flex-col items-center justify-center py-10">
+      <div className="flex flex-col items-center justify-center min-h-[70vh]">
         {/* Success circle with check */}
         <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mb-8">
           <Check className="text-white h-12 w-12" />
