@@ -28,7 +28,7 @@ const CheckoutPage: React.FC = () => {
           <p className="text-worldcoin-textGray text-[15px]">{phoneNumber}</p>
         </div>
         <img 
-          src="/lovable-uploads/cb8be779-b5ef-404f-bf8c-259856d74ea0.png" 
+          src="/lovable-uploads/cf4e8c2f-dc2c-4583-8ac2-08c8758ae4b6.png" 
           alt="ACME Unlimited Card" 
           className="h-20 rounded-lg"
         />
