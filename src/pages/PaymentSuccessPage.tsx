@@ -44,12 +44,12 @@ const PaymentSuccessPage: React.FC = () => {
           Payment successful
         </h1>
         
-        <p className="text-worldcoin-textGray text-center text-[18px] mb-12 px-6">
+        <p className="text-gray-500 text-center text-[18px] mb-12 px-6">
           Welcome to World Connect. We've created your eSIM and you're good to go.
         </p>
         
         {/* Action buttons */}
-        <div className="w-full px-6 flex flex-col gap-4 mt-auto">
+        <div className="fixed bottom-0 left-0 w-full px-6 flex flex-col gap-4 pb-10">
           <Button
             className="w-full py-6 rounded-full text-white text-center text-base font-semibold bg-worldcoin-black"
             onClick={() => {
@@ -70,6 +70,11 @@ const PaymentSuccessPage: React.FC = () => {
           >
             Activate later
           </Button>
+          
+          {/* Home indicator bar */}
+          <div className="flex justify-center w-full mt-2">
+            <div className="w-[134px] h-[5px] bg-gray-900 rounded-full"></div>
+          </div>
         </div>
       </div>
     </PageLayout>

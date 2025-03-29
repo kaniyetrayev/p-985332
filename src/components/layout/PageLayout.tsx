@@ -7,6 +7,7 @@ interface PageLayoutProps {
   children: ReactNode;
   title?: string;
   showBackButton?: boolean;
+  hideBackButton?: boolean;
   onBackClick?: () => void;
   rightIcon?: ReactNode;
 }
@@ -15,6 +16,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   children,
   title,
   showBackButton = false,
+  hideBackButton = false,
   onBackClick,
   rightIcon,
 }) => {
@@ -32,7 +34,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   return (
     <div className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} min-h-screen w-full flex flex-col pb-[130px]`}>
       {/* Header */}
-      {(showBackButton || title || rightIcon) && (
+      {!hideBackButton && (showBackButton || title || rightIcon) && (
         <div className="px-6 pt-6 pb-4 flex items-center justify-between">
           {showBackButton ? (
             <button 
@@ -61,7 +63,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       </div>
 
       {/* Footer */}
-      <MarketingFooter />
+      {!hideBackButton && <MarketingFooter />}
     </div>
   );
 };

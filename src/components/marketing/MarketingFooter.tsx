@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
@@ -40,6 +39,12 @@ export const MarketingFooter: React.FC = () => {
   // Determine which buttons to show based on current route
   const isSubscribePage = location.pathname === '/subscribe';
   const isCheckoutPage = location.pathname === '/checkout';
+  const isPaymentSuccessPage = location.pathname === '/payment-success';
+
+  // Don't show footer on payment success page
+  if (isPaymentSuccessPage) {
+    return null;
+  }
 
   if (isCheckoutPage) {
     return (
