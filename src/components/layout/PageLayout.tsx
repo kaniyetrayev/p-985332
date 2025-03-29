@@ -60,7 +60,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       {/* Title shown only on hideBackButton pages like payment success */}
       {hideBackButton && title && (
         <div className="pt-8 text-center">
-          <h1 className="text-2xl font-bold opacity-0">{title}</h1>
+          <h1 className="text-2xl font-bold">{title}</h1>
         </div>
       )}
 
@@ -69,7 +69,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
         {children}
       </div>
 
-      {/* Footer */}
+      {/* Footer - Only show on non-success pages that don't have hideBackButton */}
       {!hideBackButton && <MarketingFooter />}
     </div>
   );

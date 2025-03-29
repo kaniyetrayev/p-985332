@@ -4,13 +4,25 @@ import { useNavigate } from "react-router-dom";
 import Confetti from "react-confetti";
 import { Check } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { Button } from "@/components/ui/button";
 import { useWindowSize } from "@/hooks/use-window-size";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 const PaymentSuccessPage: React.FC = () => {
   const navigate = useNavigate();
   const [confettiActive, setConfettiActive] = useState(true);
   const { width, height } = useWindowSize();
+  const [isWorldApp, setIsWorldApp] = useState(false);
+
+  // Check if we're running in World App
+  useEffect(() => {
+    const checkEnvironment = () => {
+      setIsWorldApp(MiniKit.isInstalled());
+    };
+    
+    const timer = setTimeout(checkEnvironment, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Stop confetti after 5 seconds
   useEffect(() => {
@@ -20,6 +32,16 @@ const PaymentSuccessPage: React.FC = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  const handleActivateNow = () => {
+    console.log("Activate now");
+    // Handle activation logic here
+  };
+
+  const handleActivateLater = () => {
+    console.log("Activate later");
+    navigate("/");
+  };
 
   return (
     <PageLayout hideBackButton={true} title="Payment successful">
@@ -44,36 +66,34 @@ const PaymentSuccessPage: React.FC = () => {
           Payment successful
         </h1>
         
-        <p className="text-gray-500 text-center text-lg max-w-md">
+        <p className="text-gray-500 text-center text-lg max-w-md mb-8">
           Welcome to World Connect. We've created your eSIM and you're good to go.
         </p>
       </div>
       
-      {/* Action buttons */}
+      {/* MiniKit Tab Bar for Activate Now/Later */}
       <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
-        <Button
-          className="w-full py-6 rounded-full text-white text-center text-lg font-medium bg-worldcoin-black hover:bg-black mb-4"
-          onClick={() => {
-            console.log("Activate now");
-            // Navigate to activation page or handle activation logic
-          }}
-        >
-          Activate now
-        </Button>
-        
-        <Button
-          variant="ghost"
-          className="w-full text-center text-lg font-medium hover:bg-transparent hover:text-black mb-6"
-          onClick={() => {
-            console.log("Activate later");
-            navigate("/");
-          }}
-        >
-          Activate later
-        </Button>
+        <Tabs defaultValue="activate-now" className="w-full">
+          <TabsList className={`w-full grid grid-cols-2 rounded-full ${isWorldApp ? 'bg-worldcoin-lightGray' : 'bg-gray-100'}`}>
+            <TabsTrigger 
+              value="activate-now" 
+              className={`rounded-full py-3 text-lg font-medium data-[state=active]:${isWorldApp ? 'bg-worldcoin-blue text-white' : 'bg-black text-white'}`}
+              onClick={handleActivateNow}
+            >
+              Activate now
+            </TabsTrigger>
+            <TabsTrigger 
+              value="activate-later" 
+              className="rounded-full py-3 text-lg font-medium data-[state=active]:bg-transparent"
+              onClick={handleActivateLater}
+            >
+              Activate later
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
         
         {/* Home indicator bar */}
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full mt-6">
           <div className="w-[134px] h-[5px] bg-gray-900 rounded-full"></div>
         </div>
       </div>
