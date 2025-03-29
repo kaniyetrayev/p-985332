@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Text } from "@worldcoin/mini-apps-ui-kit-react";
 
 interface FeatureItemProps {
   icon: string;
@@ -22,12 +24,12 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
           />
         </div>
         <div className="min-w-60 flex-1 shrink basis-[0%]">
-          <div className="text-[#191C20] text-base font-semibold tracking-[0px]">
+          <Text variant="subtitle1" className="text-[#191C20] text-base font-semibold tracking-[0px]">
             {title}
-          </div>
-          <div className="text-[#657080] text-sm font-normal leading-5 tracking-[0px]">
+          </Text>
+          <Text variant="paragraph2" className="text-[#657080] text-sm font-normal leading-5 tracking-[0px]">
             {description}
-          </div>
+          </Text>
         </div>
       </div>
     </div>
