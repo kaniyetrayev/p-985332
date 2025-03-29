@@ -7,6 +7,11 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { useWindowSize } from "@/hooks/use-window-size";
 import { MiniKit } from "@worldcoin/minikit-js";
 
+// Create a type assertion for the extended MiniKit
+const ExtendedMiniKit = MiniKit as typeof MiniKit & {
+  registerComponent?: (componentName: string, options?: { theme?: string }) => void;
+};
+
 const PaymentSuccessPage: React.FC = () => {
   const navigate = useNavigate();
   const [confettiActive, setConfettiActive] = useState(true);
@@ -44,10 +49,10 @@ const PaymentSuccessPage: React.FC = () => {
 
   // Use MiniKit UI components if available
   useEffect(() => {
-    if (isWorldApp) {
+    if (isWorldApp && ExtendedMiniKit.registerComponent) {
       try {
         // Register MiniKit components if needed
-        MiniKit.registerComponent('button', {
+        ExtendedMiniKit.registerComponent('button', {
           theme: 'worldcoin',
         });
       } catch (error) {

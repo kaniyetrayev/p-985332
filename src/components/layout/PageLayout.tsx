@@ -3,6 +3,11 @@ import React, { ReactNode, useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { MarketingFooter } from "../marketing/MarketingFooter";
 
+// Create a type assertion for the extended MiniKit
+const ExtendedMiniKit = MiniKit as typeof MiniKit & {
+  registerComponent?: (componentName: string, options?: { theme?: string }) => void;
+};
+
 interface PageLayoutProps {
   children: ReactNode;
   title?: string;
@@ -35,10 +40,10 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
 
   // Register MiniKit components if needed
   useEffect(() => {
-    if (isWorldApp) {
+    if (isWorldApp && ExtendedMiniKit.registerComponent) {
       try {
         // Register any MiniKit components that should be used in the layout
-        MiniKit.registerComponent('container', {
+        ExtendedMiniKit.registerComponent('container', {
           theme: 'worldcoin',
         });
       } catch (error) {
