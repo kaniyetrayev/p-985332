@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useWindowSize } from "@/hooks/use-window-size";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { Button } from "@/components/ui/button";
 
 const PaymentSuccessPage: React.FC = () => {
   const navigate = useNavigate();
@@ -72,21 +73,22 @@ const PaymentSuccessPage: React.FC = () => {
       
       {/* Activate buttons fixed at bottom */}
       <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
-        <button
+        <Button
           onClick={handleActivateNow}
-          className={`w-full py-4 mb-4 rounded-full text-white text-center text-lg font-medium ${
-            isWorldApp ? "bg-worldcoin-blue" : "bg-black"
+          className={`w-full text-base py-6 h-auto rounded-full mb-4 ${
+            isWorldApp ? "bg-worldcoin-blue hover:bg-worldcoin-blue/90" : "bg-black hover:bg-black/90"
           }`}
         >
           Activate now
-        </button>
+        </Button>
         
-        <button
+        <Button
+          variant="ghost"
           onClick={handleActivateLater}
-          className="w-full py-3 mb-6 text-center text-lg font-medium"
+          className="w-full py-3 mb-6 text-base h-auto"
         >
           Activate later
-        </button>
+        </Button>
       </div>
     </PageLayout>
   );
