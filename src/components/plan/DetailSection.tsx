@@ -1,5 +1,6 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 export interface DetailItem {
   label: string;
@@ -12,13 +13,15 @@ interface DetailSectionProps {
   items: DetailItem[];
   actionButtonText?: string;
   onActionClick?: () => void;
+  isWorldApp?: boolean;
 }
 
 export const DetailSection: React.FC<DetailSectionProps> = ({ 
   title, 
   items, 
   actionButtonText = "Manage", 
-  onActionClick 
+  onActionClick,
+  isWorldApp = false
 }) => {
   const handleAction = () => {
     if (onActionClick) {
@@ -29,22 +32,26 @@ export const DetailSection: React.FC<DetailSectionProps> = ({
   return (
     <div className="mb-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className={`text-xl font-bold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{title}</h3>
         {actionButtonText && (
           <button 
-            className="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium"
+            className={`${isWorldApp ? 'bg-worldcoin-lightGray' : 'bg-gray-100'} px-4 py-2 rounded-full text-sm font-medium`}
             onClick={handleAction}
+            id={isWorldApp ? "minikit-button" : ""}
           >
             {actionButtonText}
           </button>
         )}
       </div>
-      <div className="bg-white rounded-lg p-4 shadow-sm">
+      <div 
+        className={`${isWorldApp ? 'bg-white' : 'bg-white'} rounded-lg p-4 shadow-sm`}
+        id={isWorldApp ? "minikit-card" : ""}
+      >
         {items.map((item, index) => (
           <div key={index} className="flex justify-between py-3 border-b border-gray-100 last:border-0">
-            <span className="text-gray-500">{item.label}</span>
+            <span className={`${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-500'}`}>{item.label}</span>
             <div className="flex items-center">
-              <span className="font-medium">{item.value}</span>
+              <span className={`font-medium ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{item.value}</span>
               {item.actionButton}
             </div>
           </div>

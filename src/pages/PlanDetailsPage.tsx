@@ -63,12 +63,16 @@ const PlanDetailsPage: React.FC = () => {
 
   // Check if running in World App
   useEffect(() => {
-    const checkEnvironment = () => {
-      setIsWorldApp(MiniKit.isInstalled());
+    const checkEnvironment = async () => {
+      try {
+        setIsWorldApp(MiniKit.isInstalled());
+        console.log("MiniKit installed:", MiniKit.isInstalled());
+      } catch (error) {
+        console.error("Error checking MiniKit:", error);
+      }
     };
     
-    const timer = setTimeout(checkEnvironment, 500);
-    return () => clearTimeout(timer);
+    checkEnvironment();
   }, []);
 
   // Register MiniKit components if available
@@ -78,6 +82,10 @@ const PlanDetailsPage: React.FC = () => {
         ExtendedMiniKit.registerComponent('button', {
           theme: 'worldcoin',
         });
+        ExtendedMiniKit.registerComponent('card', {
+          theme: 'worldcoin',
+        });
+        console.log("MiniKit components registered successfully");
       } catch (error) {
         console.error("Error registering MiniKit components:", error);
       }
@@ -91,16 +99,17 @@ const PlanDetailsPage: React.FC = () => {
       rightIcon={<Headphones className="w-5 h-5" />}
     >
       {/* SIM Card Display */}
-      <SimCardDisplay phoneNumber={phoneNumber} planName={planName} />
+      <SimCardDisplay phoneNumber={phoneNumber} planName={planName} isWorldApp={isWorldApp} />
       
       {/* Action buttons */}
-      <ActionButtons onDetailsClick={handleDetailsClick} />
+      <ActionButtons onDetailsClick={handleDetailsClick} isWorldApp={isWorldApp} />
       
       {/* SIM card details */}
       <DetailSection 
         title="SIM card" 
         items={simDetails} 
         onActionClick={handleManageSim}
+        isWorldApp={isWorldApp}
       />
       
       {/* Billing details */}
@@ -108,12 +117,14 @@ const PlanDetailsPage: React.FC = () => {
         title="Billing" 
         items={billingDetails} 
         onActionClick={handleManageBilling}
+        isWorldApp={isWorldApp}
       />
       
       {/* Plan Details Sheet */}
       <PlanDetailsSheet 
         isOpen={detailsSheetOpen}
         onOpenChange={setDetailsSheetOpen}
+        isWorldApp={isWorldApp}
       />
     </PageLayout>
   );

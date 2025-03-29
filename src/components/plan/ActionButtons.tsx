@@ -1,32 +1,36 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowUpDown, Pause, Info, MoreHorizontal } from "lucide-react";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 interface ActionButtonProps {
   icon: React.ReactNode;
   label: string;
   onClick?: () => void;
+  isWorldApp: boolean;
 }
 
-const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick }) => {
+const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick, isWorldApp }) => {
   return (
     <div className="flex flex-col items-center">
       <button 
-        className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-2"
+        className={`w-12 h-12 rounded-full ${isWorldApp ? 'bg-worldcoin-lightGray' : 'bg-gray-100'} flex items-center justify-center mb-2`}
         onClick={onClick}
+        id={isWorldApp ? "minikit-button" : ""}
       >
         {icon}
       </button>
-      <span className="text-sm">{label}</span>
+      <span className={`text-sm ${isWorldApp ? 'text-worldcoin-textGray' : ''}`}>{label}</span>
     </div>
   );
 };
 
 interface ActionButtonsProps {
   onDetailsClick: () => void;
+  isWorldApp: boolean;
 }
 
-export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDetailsClick }) => {
+export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDetailsClick, isWorldApp }) => {
   const handleChange = () => {
     console.log("Change plan clicked");
   };
@@ -54,6 +58,7 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDetailsClick }) 
           icon={button.icon} 
           label={button.label} 
           onClick={button.onClick}
+          isWorldApp={isWorldApp}
         />
       ))}
     </div>
