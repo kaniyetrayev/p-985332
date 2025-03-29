@@ -1,8 +1,8 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 
 export const MarketingFooter: React.FC = () => {
   const [isWorldApp, setIsWorldApp] = useState(false);
@@ -29,6 +29,8 @@ export const MarketingFooter: React.FC = () => {
     // If on subscribe page, navigate to checkout
     if (location.pathname === '/subscribe') {
       navigate('/checkout');
+    } else if (location.pathname === '/checkout') {
+      navigate('/payment'); // Navigate to payment page when implemented
     } else {
       // Otherwise go home
       navigate('/');
@@ -40,7 +42,7 @@ export const MarketingFooter: React.FC = () => {
   const isCheckoutPage = location.pathname === '/checkout';
 
   return (
-    <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} fixed bottom-0 left-0 w-full z-50 border-t border-[#E5E7EB]`}>
+    <footer className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} fixed bottom-0 left-0 w-full z-50 border-t border-[#E5E7EB]`}>
       <div className="flex w-full flex-col items-center px-6 py-4">
         {isSubscribePage ? (
           <button
@@ -49,8 +51,8 @@ export const MarketingFooter: React.FC = () => {
           >
             <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
               isWorldApp 
-                ? "bg-[#3D7DFF]" 
-                : "bg-[#191C20]"
+                ? "bg-worldcoin-blue" 
+                : "bg-worldcoin-black"
             }`}>
               Continue
             </div>
@@ -62,8 +64,8 @@ export const MarketingFooter: React.FC = () => {
           >
             <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
               isWorldApp 
-                ? "bg-[#3D7DFF]" 
-                : "bg-[#191C20]"
+                ? "bg-worldcoin-blue" 
+                : "bg-worldcoin-black"
             }`}>
               Continue to Payment
             </div>
@@ -76,8 +78,8 @@ export const MarketingFooter: React.FC = () => {
             >
               <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
                 isWorldApp 
-                  ? "bg-[#3D7DFF]" 
-                  : "bg-[#191C20]"
+                  ? "bg-worldcoin-blue" 
+                  : "bg-worldcoin-black"
               }`}>
                 Subscribe
               </div>
@@ -85,7 +87,7 @@ export const MarketingFooter: React.FC = () => {
           </form>
         )}
         
-        <p className="text-[#657080] text-center text-[13px] font-normal leading-none tracking-[0px] mt-4">
+        <p className="text-worldcoin-textGray text-center text-[13px] font-normal leading-none tracking-[0px] mt-4">
           By continuing, you accept Gigs{" "}
           <a href="#terms" className="underline">
             terms
@@ -96,7 +98,7 @@ export const MarketingFooter: React.FC = () => {
           </a>
           .
           {isWorldApp && (
-            <span className="ml-1 text-[#3D7DFF]">World App Enabled</span>
+            <span className="ml-1 text-worldcoin-blue">World App Enabled</span>
           )}
         </p>
       </div>

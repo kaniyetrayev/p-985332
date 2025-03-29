@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
 
 interface FeatureItemProps {
@@ -13,7 +13,16 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
   title,
   description,
 }) => {
-  const isWorldApp = MiniKit.isInstalled();
+  const [isWorldApp, setIsWorldApp] = useState(false);
+
+  useEffect(() => {
+    const checkEnvironment = () => {
+      setIsWorldApp(MiniKit.isInstalled());
+    };
+    
+    const timer = setTimeout(checkEnvironment, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="flex w-full items-stretch gap-2 my-4">
@@ -26,10 +35,10 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
           />
         </div>
         <div className="flex-1">
-          <div className={`${isWorldApp ? 'text-[#3D7DFF]' : 'text-[#191C20]'} text-base font-semibold tracking-[0px]`}>
+          <div className={`${isWorldApp ? 'text-worldcoin-blue' : 'text-worldcoin-black'} text-base font-semibold tracking-[0px]`}>
             {title}
           </div>
-          <div className="text-[#657080] text-sm font-normal leading-5 tracking-[0px]">
+          <div className="text-worldcoin-textGray text-sm font-normal leading-5 tracking-[0px]">
             {description}
           </div>
         </div>
