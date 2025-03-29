@@ -20,17 +20,17 @@ const CheckoutPage: React.FC = () => {
       showBackButton={true}
       onBackClick={handleGoBack}
     >
-      <h1 className="text-4xl font-semibold mb-8">Checkout</h1>
+      <h1 className="text-3xl font-semibold mb-6">Checkout</h1>
       
-      <div className="flex items-start justify-between mb-6">
+      <div className="flex items-start justify-between mb-8">
         <div>
-          <h2 className="text-xl font-semibold mb-2">World Connect Unlimited</h2>
-          <p className="text-worldcoin-textGray">{phoneNumber}</p>
+          <h2 className="text-lg font-medium mb-1">World Connect Unlimited</h2>
+          <p className="text-worldcoin-textGray text-base">{phoneNumber}</p>
         </div>
-        <div className="bg-worldcoin-gray p-3 rounded-lg">
+        <div className="bg-worldcoin-lightGray p-3 rounded-lg">
           <div className="flex flex-col items-end">
             <span className="text-xs text-worldcoin-textGray mb-1">ACME</span>
-            <span className="text-lg font-semibold">Unlimited</span>
+            <span className="text-base font-medium">Unlimited</span>
           </div>
           <div className="flex justify-end mt-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,26 +41,38 @@ const CheckoutPage: React.FC = () => {
         </div>
       </div>
       
-      <div className="border-t border-gray-200 pt-6 mb-4">
+      <div className="border-t border-gray-200 pt-5 pb-2">
         <div className="flex justify-between mb-4">
-          <span className="text-worldcoin-textGray text-lg">Subtotal</span>
-          <span className="text-xl font-semibold">${subtotal.toFixed(2)}</span>
+          <span className="text-worldcoin-textGray text-base">Subtotal</span>
+          <span className="text-base font-medium">${subtotal.toFixed(2)}</span>
         </div>
         
         <div className="flex justify-between items-center mb-4">
-          <span className="text-worldcoin-textGray text-lg">Taxes</span>
+          <span className="text-worldcoin-textGray text-base">Taxes</span>
           <div className="flex items-center">
-            <span className="text-xl font-semibold mr-2">${taxes.toFixed(2)}</span>
-            <ChevronDown className="w-5 h-5 text-worldcoin-textGray" />
+            <span className="text-base font-medium mr-2">${taxes.toFixed(2)}</span>
+            <ChevronDown className="w-4 h-4 text-worldcoin-textGray" />
           </div>
         </div>
       </div>
       
-      <div className="border-t border-gray-200 pt-6 mb-4">
+      <div className="border-t border-gray-200 pt-5 mb-32">
         <div className="flex justify-between">
-          <span className="text-worldcoin-textGray text-lg">Total</span>
-          <span className="text-2xl font-semibold">${total.toFixed(2)}</span>
+          <span className="text-worldcoin-textGray text-base">Total</span>
+          <span className="text-xl font-medium">${total.toFixed(2)}</span>
         </div>
+      </div>
+      
+      <div className="fixed bottom-0 left-0 right-0 px-6 py-4 bg-white">
+        <button 
+          className="w-full bg-black text-white py-4 rounded-full text-base font-medium"
+          onClick={() => console.log('Continue to payment')}
+        >
+          Continue to Payment
+        </button>
+        <p className="text-center text-sm text-worldcoin-textGray mt-4">
+          By continuing, you accept WC's <a href="#" className="underline">terms and conditions</a>.
+        </p>
       </div>
     </PageLayout>
   );
