@@ -30,16 +30,16 @@ export const MarketingFooter: React.FC = () => {
     <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} mt-[109px] max-md:mt-10`}>
       <form
         onSubmit={handleSubscribe}
-        className="flex w-full max-w-[375px] flex-col items-stretch pt-4 px-6 max-md:px-5"
+        className="flex w-full max-w-[375px] flex-col items-stretch px-6 max-md:px-5"
       >
         <button
           type="submit"
-          className="shadow-[0px_5px_10px_rgba(25,28,32,0.2)] flex w-full items-stretch text-base font-semibold whitespace-nowrap tracking-[0px]"
+          className="flex w-full items-stretch text-base font-semibold whitespace-nowrap tracking-[0px]"
         >
-          <div className={`self-stretch border min-w-60 w-full gap-1 overflow-hidden h-full flex-1 shrink basis-[0%] p-4 rounded-[100px] border-solid ${
+          <div className={`w-full py-4 rounded-[100px] text-white text-center ${
             isWorldApp 
-              ? "bg-[#3D7DFF] border-[#3D7DFF] text-white" 
-              : "bg-[rgba(25,28,32,1)] border-[rgba(25,28,32,1)] text-white"
+              ? "bg-[#3D7DFF]" 
+              : "bg-[#191C20]"
           }`}>
             Subscribe
           </div>
