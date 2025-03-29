@@ -87,11 +87,6 @@ const PaymentSuccessPage: React.FC = () => {
         >
           Activate later
         </button>
-        
-        {/* Home indicator bar */}
-        <div className="flex justify-center w-full">
-          <div className="w-[134px] h-[5px] bg-gray-900 rounded-full"></div>
-        </div>
       </div>
     </PageLayout>
   );
