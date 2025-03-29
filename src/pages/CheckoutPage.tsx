@@ -24,7 +24,7 @@ const CheckoutPage: React.FC = () => {
       
       <div className="flex items-start justify-between mb-8">
         <div>
-          <h2 className="text-[20px] font-semibold mb-1">World Connect Unlimited</h2>
+          <h2 className="text-[15px] font-semibold mb-1">World Connect Unlimited</h2>
           <p className="text-worldcoin-textGray text-[15px]">{phoneNumber}</p>
         </div>
         <div className="bg-worldcoin-lightGray p-3 rounded-lg">
