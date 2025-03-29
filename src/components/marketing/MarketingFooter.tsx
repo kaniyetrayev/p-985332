@@ -59,9 +59,6 @@ export const MarketingFooter: React.FC = () => {
           )}
         </p>
       </form>
-      <div className="flex w-full flex-col items-center pt-4 pb-2">
-        <div className={`${isWorldApp ? 'bg-[#3D7DFF]' : 'bg-neutral-900'} flex w-[134px] shrink-0 h-[5px] rounded-[100px]`} />
-      </div>
     </footer>
   );
 };
