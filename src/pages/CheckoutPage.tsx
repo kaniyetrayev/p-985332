@@ -56,23 +56,11 @@ const CheckoutPage: React.FC = () => {
         </div>
       </div>
       
-      <div className="border-t border-gray-200 pt-5 mb-32">
+      <div className="border-t border-gray-200 pt-5 mb-6">
         <div className="flex justify-between">
           <span className="text-worldcoin-textGray text-[15px] font-normal">Total</span>
           <span className="text-[20px] font-semibold">${total.toFixed(2)}</span>
         </div>
-      </div>
-      
-      <div className="fixed bottom-0 left-0 right-0 px-6 py-4 bg-white">
-        <button 
-          className="w-full bg-black text-white py-4 rounded-full text-base font-semibold"
-          onClick={() => console.log('Continue to payment')}
-        >
-          Continue to Payment
-        </button>
-        <p className="text-center text-[13px] text-worldcoin-textGray mt-4">
-          By continuing, you accept WC's <a href="#" className="underline">terms and conditions</a>.
-        </p>
       </div>
     </PageLayout>
   );
