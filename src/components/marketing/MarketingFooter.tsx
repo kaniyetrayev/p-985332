@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
@@ -36,15 +37,21 @@ export const MarketingFooter: React.FC = () => {
     }
   };
 
+  // List of paths where the footer should not be shown at all
+  const hiddenFooterPaths = [
+    '/payment-success',
+    '/install-esim',
+    '/plan-details'
+  ];
+
+  // Don't show footer on specific pages
+  if (hiddenFooterPaths.includes(location.pathname)) {
+    return null;
+  }
+
   // Determine which buttons to show based on current route
   const isSubscribePage = location.pathname === '/subscribe';
   const isCheckoutPage = location.pathname === '/checkout';
-  const isPaymentSuccessPage = location.pathname === '/payment-success';
-
-  // Don't show footer on payment success page
-  if (isPaymentSuccessPage) {
-    return null;
-  }
 
   if (isCheckoutPage) {
     return (
