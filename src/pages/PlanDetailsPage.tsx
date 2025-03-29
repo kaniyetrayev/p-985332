@@ -9,7 +9,6 @@ import { ActionButtons } from "@/components/plan/ActionButtons";
 import { DetailSection, DetailItem } from "@/components/plan/DetailSection";
 import { PlanDetailsSheet } from "@/components/plan/PlanDetailsSheet";
 import { CopyButton } from "@/components/plan/CopyButton";
-import { AddLineButton } from "@/components/plan/AddLineButton";
 
 // Extended MiniKit type
 const ExtendedMiniKit = MiniKit as typeof MiniKit & {
@@ -56,10 +55,6 @@ const PlanDetailsPage: React.FC = () => {
 
   function handleManageBilling() {
     console.log("Manage billing clicked");
-  }
-
-  function handleAddLine() {
-    console.log("Add line clicked");
   }
   
   function handleDetailsClick() {
@@ -113,12 +108,6 @@ const PlanDetailsPage: React.FC = () => {
         title="Billing" 
         items={billingDetails} 
         onActionClick={handleManageBilling}
-      />
-      
-      {/* Add line button */}
-      <AddLineButton 
-        onClick={handleAddLine} 
-        isWorldApp={isWorldApp} 
       />
       
       {/* Plan Details Sheet */}
