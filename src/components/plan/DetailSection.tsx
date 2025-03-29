@@ -30,12 +30,12 @@ export const DetailSection: React.FC<DetailSectionProps> = ({
   };
 
   return (
-    <div className="mb-6">
-      <div className="flex justify-between items-center mb-4">
+    <div className="mb-5">
+      <div className="flex justify-between items-center mb-3">
         <h3 className={`text-xl font-bold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{title}</h3>
         {actionButtonText && (
           <button 
-            className={`${isWorldApp ? 'bg-worldcoin-lightGray' : 'bg-gray-100'} px-4 py-2 rounded-full text-sm font-medium`}
+            className={`${isWorldApp ? 'bg-worldcoin-lightGray' : 'bg-gray-100'} px-4 py-1.5 rounded-full text-sm font-medium`}
             onClick={handleAction}
             id={isWorldApp ? "minikit-button" : ""}
           >
@@ -44,11 +44,11 @@ export const DetailSection: React.FC<DetailSectionProps> = ({
         )}
       </div>
       <div 
-        className={`${isWorldApp ? 'bg-white' : 'bg-white'} rounded-lg p-4 shadow-sm`}
+        className={`${isWorldApp ? 'bg-white' : 'bg-white'} rounded-lg p-3 shadow-sm`}
         id={isWorldApp ? "minikit-card" : ""}
       >
         {items.map((item, index) => (
-          <div key={index} className="flex justify-between py-2 border-b border-gray-100 last:border-0">
+          <div key={index} className="flex justify-between py-1 border-b border-gray-100 last:border-0">
             <span className={`${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-500'}`}>{item.label}</span>
             <div className="flex items-center">
               <span className={`font-medium ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{item.value}</span>

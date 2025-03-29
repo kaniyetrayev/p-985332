@@ -25,8 +25,8 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
   }, []);
 
   return (
-    <div className="flex w-full items-stretch gap-2 my-4">
-      <div className="flex w-full gap-3 py-2">
+    <div className="flex w-full items-stretch gap-2 my-3">
+      <div className="flex w-full gap-3 py-1">
         <div className="flex flex-col items-center justify-center w-6">
           <img
             src={icon}
@@ -35,10 +35,10 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
           />
         </div>
         <div className="flex-1">
-          <div className={`${isWorldApp ? 'text-worldcoin-blue' : 'text-worldcoin-black'} text-base font-semibold tracking-[0px]`}>
+          <div className={`${isWorldApp ? 'text-worldcoin-blue' : 'text-worldcoin-black'} text-base font-semibold leading-tight tracking-[0px]`}>
             {title}
           </div>
-          <div className="text-worldcoin-textGray text-sm font-normal leading-5 tracking-[0px]">
+          <div className="text-worldcoin-textGray text-sm font-normal leading-tight tracking-[0px]">
             {description}
           </div>
         </div>

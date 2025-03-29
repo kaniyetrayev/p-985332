@@ -4,11 +4,11 @@ import { FeatureItem } from "./FeatureItem";
 
 export const MarketingFeatures: React.FC = () => {
   return (
-    <section className="w-full py-4">
-      <h2 className="self-stretch flex-1 shrink basis-[0%] w-full text-xl text-[#191C20] font-semibold tracking-[0px] leading-[1.4]">
+    <section className="w-full py-3">
+      <h2 className="self-stretch flex-1 shrink basis-[0%] w-full text-xl text-[#191C20] font-semibold tracking-[0px] leading-[1.2]">
         What's included?
       </h2>
-      <div className="w-full mt-4">
+      <div className="w-full mt-3">
         <FeatureItem
           icon="https://cdn.builder.io/api/v1/image/assets/5ff7ee42325448c9879d12b7db97993d/24746d798dc64a4025d739787a55319a16531d58?placeholderIfAbsent=true"
           title="Data"

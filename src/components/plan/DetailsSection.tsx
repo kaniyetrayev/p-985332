@@ -23,24 +23,24 @@ export const DetailsSection: React.FC<DetailsSectionProps> = ({
   onAction 
 }) => {
   return (
-    <div className="mb-8">
-      <div className="flex justify-between items-center mb-4">
+    <div className="mb-6">
+      <div className="flex justify-between items-center mb-3">
         <h3 className="text-2xl font-bold">{title}</h3>
         {onAction && (
           <button 
             onClick={onAction}
-            className="bg-worldcoin-lightGray text-black px-5 py-2 rounded-full text-sm font-medium"
+            className="bg-worldcoin-lightGray text-black px-5 py-1.5 rounded-full text-sm font-medium"
           >
             {actionLabel}
           </button>
         )}
       </div>
       
-      <div className="bg-white rounded-xl p-5 shadow-sm">
+      <div className="bg-white rounded-xl p-4 shadow-sm">
         {details.map((detail, index) => (
           <div 
             key={index} 
-            className={`flex justify-between items-center py-1.5 ${
+            className={`flex justify-between items-center py-1 ${
               index !== details.length - 1 ? "border-b border-gray-100" : ""
             }`}
           >
