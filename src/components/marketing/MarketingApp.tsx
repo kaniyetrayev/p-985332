@@ -12,7 +12,7 @@ export const MarketingApp: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} w-full max-w-[450px] mx-auto`}>
+      <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} w-full mx-auto pb-[130px]`}>
         <div>
           <MarketingHeader />
           <div className="w-full py-4">

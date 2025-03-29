@@ -27,10 +27,10 @@ export const MarketingFooter: React.FC = () => {
   };
 
   return (
-    <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} mt-[60px] max-md:mt-6 w-full`}>
+    <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} fixed bottom-0 left-0 w-full z-50`}>
       <form
         onSubmit={handleSubscribe}
-        className="flex w-full flex-col items-center px-6 pb-4"
+        className="flex w-full flex-col items-center px-6 pb-4 pt-4"
       >
         <button
           type="submit"
