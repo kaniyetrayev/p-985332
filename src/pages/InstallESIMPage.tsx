@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Headphones } from "lucide-react";
@@ -48,9 +47,8 @@ const InstallESIMPage: React.FC = () => {
   }, [isWorldApp]);
 
   const handleInstallNow = () => {
-    console.log("Install now");
-    // Implement install logic here
-    // Would typically trigger the actual eSIM installation process
+    console.log("Install now - navigating to plan details");
+    navigate("/plan-details");
   };
 
   // Array of step indicators
