@@ -20,12 +20,12 @@ export const MarketingHeader: React.FC = () => {
 
   return (
     <header className="w-full">
-      <div className="bg-white w-full overflow-hidden pb-11">
+      <div className={`${isInstalledInWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} w-full overflow-hidden pb-11`}>
         <div className="bg-black">
-          <div className="bg-white flex shrink-0 h-6 rounded-[0px_0px_0px_0px]" />
+          <div className={`${isInstalledInWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} flex shrink-0 h-6 rounded-[0px_0px_0px_0px]`} />
         </div>
         {isInstalledInWorldApp && (
-          <div className="text-center text-green-500 font-medium py-2">
+          <div className="text-center text-[#3D7DFF] font-medium py-2">
             Running inside World App
           </div>
         )}

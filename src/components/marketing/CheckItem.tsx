@@ -1,5 +1,6 @@
 
 import React from "react";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 interface CheckItemProps {
   label: string;
@@ -8,13 +9,15 @@ interface CheckItemProps {
 }
 
 export const CheckItem: React.FC<CheckItemProps> = ({ label, value, icon }) => {
+  const isWorldApp = MiniKit.isInstalled();
+
   return (
-    <div className="bg-white flex w-full items-stretch gap-2 py-3">
+    <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} flex w-full items-stretch gap-2 py-3`}>
       <div className="flex min-w-60 w-full items-center gap-2 overflow-hidden h-full flex-1 shrink basis-[0%]">
         <div className="text-[#657080] font-normal self-stretch flex-1 shrink basis-[0%] my-auto">
           {label}
         </div>
-        <div className="text-[#191C20] font-medium self-stretch my-auto">
+        <div className={`${isWorldApp ? 'text-[#3D7DFF]' : 'text-[#191C20]'} font-medium self-stretch my-auto`}>
           {value}
         </div>
         <img

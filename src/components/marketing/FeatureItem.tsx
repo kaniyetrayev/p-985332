@@ -1,5 +1,6 @@
 
 import React from "react";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 interface FeatureItemProps {
   icon: string;
@@ -12,6 +13,8 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
   title,
   description,
 }) => {
+  const isWorldApp = MiniKit.isInstalled();
+
   return (
     <div className="flex w-full items-stretch gap-2">
       <div className="flex min-w-60 w-full gap-3 overflow-hidden h-full flex-1 shrink basis-[0%] py-2">
@@ -23,7 +26,7 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
           />
         </div>
         <div className="min-w-60 flex-1 shrink basis-[0%]">
-          <div className="text-[#191C20] text-base font-semibold tracking-[0px]">
+          <div className={`${isWorldApp ? 'text-[#3D7DFF]' : 'text-[#191C20]'} text-base font-semibold tracking-[0px]`}>
             {title}
           </div>
           <div className="text-[#657080] text-sm font-normal leading-5 tracking-[0px]">
