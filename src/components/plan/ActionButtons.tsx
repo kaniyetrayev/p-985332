@@ -1,6 +1,6 @@
 
 import React from "react";
-import { ArrowUp, Pause, Info, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, Pause, Info, MoreHorizontal } from "lucide-react";
 
 interface ActionButtonProps {
   icon: React.ReactNode;
@@ -12,7 +12,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick }) => 
   return (
     <div className="flex flex-col items-center">
       <button 
-        className="w-12 h-12 rounded-full bg-worldcoin-lightGray flex items-center justify-center mb-2"
+        className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-2"
         onClick={onClick}
       >
         {icon}
@@ -40,7 +40,7 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDetailsClick }) 
   };
   
   const buttons = [
-    { icon: <ArrowUp className="w-5 h-5" />, label: "Change", onClick: handleChange },
+    { icon: <ArrowUpDown className="w-5 h-5" />, label: "Change", onClick: handleChange },
     { icon: <Pause className="w-5 h-5" />, label: "Pause", onClick: handlePause },
     { icon: <Info className="w-5 h-5" />, label: "Details", onClick: onDetailsClick },
     { icon: <MoreHorizontal className="w-5 h-5" />, label: "More", onClick: handleMore }
