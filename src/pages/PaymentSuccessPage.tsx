@@ -6,7 +6,6 @@ import { Check } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useWindowSize } from "@/hooks/use-window-size";
 import { MiniKit } from "@worldcoin/minikit-js";
-import { Button } from "@/components/ui/button";
 
 const PaymentSuccessPage: React.FC = () => {
   const navigate = useNavigate();
@@ -43,6 +42,20 @@ const PaymentSuccessPage: React.FC = () => {
     navigate("/");
   };
 
+  // Use MiniKit UI components if available
+  useEffect(() => {
+    if (isWorldApp) {
+      try {
+        // Register MiniKit components if needed
+        MiniKit.registerComponent('button', {
+          theme: 'worldcoin',
+        });
+      } catch (error) {
+        console.error("Error registering MiniKit components:", error);
+      }
+    }
+  }, [isWorldApp]);
+
   return (
     <PageLayout hideBackButton={true} hideTitle={true}>
       {confettiActive && (
@@ -73,22 +86,43 @@ const PaymentSuccessPage: React.FC = () => {
       
       {/* Activate buttons fixed at bottom */}
       <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
-        <Button
-          onClick={handleActivateNow}
-          className={`w-full text-base py-6 h-auto rounded-full mb-4 ${
-            isWorldApp ? "bg-worldcoin-blue hover:bg-worldcoin-blue/90" : "bg-black hover:bg-black/90"
-          }`}
-        >
-          Activate now
-        </Button>
-        
-        <Button
-          variant="ghost"
-          onClick={handleActivateLater}
-          className="w-full py-3 mb-6 text-base h-auto"
-        >
-          Activate later
-        </Button>
+        {isWorldApp ? (
+          // Using MiniKit buttons when in World App
+          <>
+            <button
+              onClick={handleActivateNow}
+              className="w-full text-base py-6 h-auto rounded-full mb-4 bg-worldcoin-blue text-white font-semibold"
+              id="minikit-primary-button"
+            >
+              Activate now
+            </button>
+            
+            <button
+              onClick={handleActivateLater}
+              className="w-full py-3 mb-6 text-base h-auto text-worldcoin-blue font-medium"
+              id="minikit-secondary-button"
+            >
+              Activate later
+            </button>
+          </>
+        ) : (
+          // Regular buttons when not in World App
+          <>
+            <button
+              onClick={handleActivateNow}
+              className="w-full text-base py-6 h-auto rounded-full mb-4 bg-black hover:bg-black/90 text-white font-semibold"
+            >
+              Activate now
+            </button>
+            
+            <button
+              onClick={handleActivateLater}
+              className="w-full py-3 mb-6 text-base h-auto font-medium"
+            >
+              Activate later
+            </button>
+          </>
+        )}
       </div>
     </PageLayout>
   );

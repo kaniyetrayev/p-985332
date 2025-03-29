@@ -52,15 +52,12 @@ export const MarketingFooter: React.FC = () => {
         <div className="flex w-full flex-col items-center px-6 py-4">
           <button
             onClick={() => navigate('/payment-success')}
-            className="w-full"
+            className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
+              isWorldApp ? "bg-worldcoin-blue" : "bg-worldcoin-black"
+            }`}
+            id={isWorldApp ? "minikit-primary-button" : ""}
           >
-            <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
-              isWorldApp 
-                ? "bg-worldcoin-blue" 
-                : "bg-worldcoin-black"
-            }`}>
-              Continue to Payment
-            </div>
+            Continue to Payment
           </button>
           
           <p className="text-worldcoin-textGray text-center text-[13px] font-normal leading-none tracking-[0px] mt-4">
@@ -88,29 +85,23 @@ export const MarketingFooter: React.FC = () => {
         {isSubscribePage ? (
           <button
             onClick={handleContinue}
-            className="w-full"
+            className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
+              isWorldApp ? "bg-worldcoin-blue" : "bg-worldcoin-black"
+            }`}
+            id={isWorldApp ? "minikit-primary-button" : ""}
           >
-            <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
-              isWorldApp 
-                ? "bg-worldcoin-blue" 
-                : "bg-worldcoin-black"
-            }`}>
-              Continue
-            </div>
+            Continue
           </button>
         ) : (
           <form onSubmit={handleSubscribe} className="w-full">
             <button
               type="submit"
-              className="w-full"
+              className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
+                isWorldApp ? "bg-worldcoin-blue" : "bg-worldcoin-black"
+              }`}
+              id={isWorldApp ? "minikit-primary-button" : ""}
             >
-              <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
-                isWorldApp 
-                  ? "bg-worldcoin-blue" 
-                  : "bg-worldcoin-black"
-              }`}>
-                Subscribe
-              </div>
+              Subscribe
             </button>
           </form>
         )}

@@ -33,8 +33,25 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
     return () => clearTimeout(timer);
   }, []);
 
+  // Register MiniKit components if needed
+  useEffect(() => {
+    if (isWorldApp) {
+      try {
+        // Register any MiniKit components that should be used in the layout
+        MiniKit.registerComponent('container', {
+          theme: 'worldcoin',
+        });
+      } catch (error) {
+        console.error("Error registering MiniKit components:", error);
+      }
+    }
+  }, [isWorldApp]);
+
   return (
-    <div className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} min-h-screen w-full flex flex-col`}>
+    <div 
+      className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} min-h-screen w-full flex flex-col`}
+      id={isWorldApp ? "minikit-container" : ""}
+    >
       {/* Header */}
       {!hideBackButton && (showBackButton || title || rightIcon) && (
         <div className="px-6 pt-6 pb-4 flex items-center justify-between">
@@ -42,6 +59,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
             <button 
               onClick={onBackClick}
               className="w-10 h-10 rounded-full bg-worldcoin-lightGray flex items-center justify-center"
+              id={isWorldApp ? "minikit-back-button" : ""}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
