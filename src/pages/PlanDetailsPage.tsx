@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Headphones } from "lucide-react";
@@ -7,6 +8,7 @@ import { SimCardDisplay } from "@/components/plan/SimCardDisplay";
 import { ActionButtons } from "@/components/plan/ActionButtons";
 import { DetailsSection, DetailItem } from "@/components/plan/DetailsSection";
 import { DataUsageSection } from "@/components/plan/DataUsageSection";
+import { PlanDetailsSheet } from "@/components/plan/PlanDetailsSheet";
 
 // Extended MiniKit type
 const ExtendedMiniKit = MiniKit as typeof MiniKit & {
@@ -16,6 +18,7 @@ const ExtendedMiniKit = MiniKit as typeof MiniKit & {
 const PlanDetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const [isWorldApp, setIsWorldApp] = useState(false);
+  const [detailsSheetOpen, setDetailsSheetOpen] = useState(false);
   const phoneNumber = "+1 (940) 310-2432";
   
   // SIM card details
@@ -50,6 +53,10 @@ const PlanDetailsPage: React.FC = () => {
   const handleAddLine = () => {
     console.log("Add line");
     // Handle adding a new line logic here
+  };
+  
+  const handleDetailsClick = () => {
+    setDetailsSheetOpen(true);
   };
 
   // Check if running in World App
@@ -88,7 +95,7 @@ const PlanDetailsPage: React.FC = () => {
       <SimCardDisplay phoneNumber={phoneNumber} planName="Unlimited" />
       
       {/* Action buttons */}
-      <ActionButtons />
+      <ActionButtons onDetailsClick={handleDetailsClick} />
       
       {/* Data Usage Section */}
       <DataUsageSection 
@@ -129,6 +136,12 @@ const PlanDetailsPage: React.FC = () => {
           Add line
         </button>
       )}
+      
+      {/* Plan Details Sheet */}
+      <PlanDetailsSheet 
+        isOpen={detailsSheetOpen}
+        onOpenChange={setDetailsSheetOpen}
+      />
     </PageLayout>
   );
 };

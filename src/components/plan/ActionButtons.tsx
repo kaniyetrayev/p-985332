@@ -5,25 +5,45 @@ import { ArrowUp, Pause, Info, MoreHorizontal } from "lucide-react";
 interface ActionButtonProps {
   icon: React.ReactNode;
   label: string;
+  onClick?: () => void;
 }
 
-const ActionButton: React.FC<ActionButtonProps> = ({ icon, label }) => {
+const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick }) => {
   return (
     <div className="flex flex-col items-center">
-      <div className="w-12 h-12 rounded-full bg-worldcoin-lightGray flex items-center justify-center mb-2">
+      <button 
+        className="w-12 h-12 rounded-full bg-worldcoin-lightGray flex items-center justify-center mb-2"
+        onClick={onClick}
+      >
         {icon}
-      </div>
+      </button>
       <span className="text-sm">{label}</span>
     </div>
   );
 };
 
-export const ActionButtons: React.FC = () => {
+interface ActionButtonsProps {
+  onDetailsClick: () => void;
+}
+
+export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDetailsClick }) => {
+  const handleChange = () => {
+    console.log("Change plan clicked");
+  };
+  
+  const handlePause = () => {
+    console.log("Pause plan clicked");
+  };
+  
+  const handleMore = () => {
+    console.log("More options clicked");
+  };
+  
   const buttons = [
-    { icon: <ArrowUp className="w-5 h-5" />, label: "Change" },
-    { icon: <Pause className="w-5 h-5" />, label: "Pause" },
-    { icon: <Info className="w-5 h-5" />, label: "Details" },
-    { icon: <MoreHorizontal className="w-5 h-5" />, label: "More" }
+    { icon: <ArrowUp className="w-5 h-5" />, label: "Change", onClick: handleChange },
+    { icon: <Pause className="w-5 h-5" />, label: "Pause", onClick: handlePause },
+    { icon: <Info className="w-5 h-5" />, label: "Details", onClick: onDetailsClick },
+    { icon: <MoreHorizontal className="w-5 h-5" />, label: "More", onClick: handleMore }
   ];
   
   return (
@@ -33,6 +53,7 @@ export const ActionButtons: React.FC = () => {
           key={index} 
           icon={button.icon} 
           label={button.label} 
+          onClick={button.onClick}
         />
       ))}
     </div>
