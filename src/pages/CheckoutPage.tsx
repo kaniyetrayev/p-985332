@@ -20,12 +20,12 @@ const CheckoutPage: React.FC = () => {
       showBackButton={true}
       onBackClick={handleGoBack}
     >
-      <h1 className="text-3xl font-semibold mb-6">Checkout</h1>
+      <h1 className="text-[40px] font-semibold mb-8">Checkout</h1>
       
       <div className="flex items-start justify-between mb-8">
         <div>
-          <h2 className="text-lg font-medium mb-1">World Connect Unlimited</h2>
-          <p className="text-worldcoin-textGray text-base">{phoneNumber}</p>
+          <h2 className="text-[20px] font-semibold mb-1">World Connect Unlimited</h2>
+          <p className="text-worldcoin-textGray text-[15px]">{phoneNumber}</p>
         </div>
         <div className="bg-worldcoin-lightGray p-3 rounded-lg">
           <div className="flex flex-col items-end">
@@ -43,14 +43,14 @@ const CheckoutPage: React.FC = () => {
       
       <div className="border-t border-gray-200 pt-5 pb-2">
         <div className="flex justify-between mb-4">
-          <span className="text-worldcoin-textGray text-base">Subtotal</span>
-          <span className="text-base font-medium">${subtotal.toFixed(2)}</span>
+          <span className="text-worldcoin-textGray text-[15px] font-normal">Subtotal</span>
+          <span className="text-[15px] font-semibold">${subtotal.toFixed(2)}</span>
         </div>
         
         <div className="flex justify-between items-center mb-4">
-          <span className="text-worldcoin-textGray text-base">Taxes</span>
+          <span className="text-worldcoin-textGray text-[15px] font-normal">Taxes</span>
           <div className="flex items-center">
-            <span className="text-base font-medium mr-2">${taxes.toFixed(2)}</span>
+            <span className="text-[15px] font-semibold mr-2">${taxes.toFixed(2)}</span>
             <ChevronDown className="w-4 h-4 text-worldcoin-textGray" />
           </div>
         </div>
@@ -58,19 +58,19 @@ const CheckoutPage: React.FC = () => {
       
       <div className="border-t border-gray-200 pt-5 mb-32">
         <div className="flex justify-between">
-          <span className="text-worldcoin-textGray text-base">Total</span>
-          <span className="text-xl font-medium">${total.toFixed(2)}</span>
+          <span className="text-worldcoin-textGray text-[15px] font-normal">Total</span>
+          <span className="text-[20px] font-semibold">${total.toFixed(2)}</span>
         </div>
       </div>
       
       <div className="fixed bottom-0 left-0 right-0 px-6 py-4 bg-white">
         <button 
-          className="w-full bg-black text-white py-4 rounded-full text-base font-medium"
+          className="w-full bg-black text-white py-4 rounded-full text-base font-semibold"
           onClick={() => console.log('Continue to payment')}
         >
           Continue to Payment
         </button>
-        <p className="text-center text-sm text-worldcoin-textGray mt-4">
+        <p className="text-center text-[13px] text-worldcoin-textGray mt-4">
           By continuing, you accept WC's <a href="#" className="underline">terms and conditions</a>.
         </p>
       </div>
