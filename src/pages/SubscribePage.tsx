@@ -1,8 +1,9 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Info, ChevronRight } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { PhoneNumberDisplay } from "@/components/subscribe/PhoneNumberDisplay";
+import { DeviceInfo } from "@/components/subscribe/DeviceInfo";
 
 const SubscribePage: React.FC = () => {
   const navigate = useNavigate();
@@ -38,27 +39,12 @@ const SubscribePage: React.FC = () => {
     >
       <h1 className="text-4xl font-semibold mb-16">Phone number</h1>
       
-      <div className="bg-white rounded-3xl p-6 shadow-sm mb-8">
-        <p className="text-worldcoin-textGray text-center mb-2">Your new number</p>
-        <p className="text-[32px] font-medium text-center mb-6">{phoneNumber}</p>
-        
-        <button 
-          onClick={handleChooseAnother}
-          className="bg-worldcoin-lightGray text-black rounded-full py-3 px-6 w-full text-center font-medium"
-        >
-          Choose another
-        </button>
-      </div>
+      <PhoneNumberDisplay 
+        phoneNumber={phoneNumber} 
+        onChooseAnother={handleChooseAnother} 
+      />
       
-      <div className="flex items-center p-4 bg-worldcoin-gray rounded-2xl">
-        <div className="w-8 h-8 rounded-full bg-worldcoin-lightGray flex items-center justify-center mr-4">
-          <Info className="w-5 h-5 text-worldcoin-textGray" />
-        </div>
-        <div className="flex-1">
-          <p className="text-worldcoin-textDark font-medium">Ensure your device is carrier unlocked</p>
-        </div>
-        <ChevronRight className="w-5 h-5 text-worldcoin-textGray" />
-      </div>
+      <DeviceInfo />
     </PageLayout>
   );
 };

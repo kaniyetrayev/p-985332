@@ -1,9 +1,13 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Headphones } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { InstallationTabs } from "@/components/esim/InstallationTabs";
+import { InstallationContent } from "@/components/esim/InstallationContent";
+import { StepIndicators } from "@/components/esim/StepIndicators";
+import { InstallButton } from "@/components/esim/InstallButton";
 
 // Extended MiniKit type
 const ExtendedMiniKit = MiniKit as typeof MiniKit & {
@@ -15,6 +19,7 @@ const InstallESIMPage: React.FC = () => {
   const [isWorldApp, setIsWorldApp] = useState(false);
   const [activeTab, setActiveTab] = useState("direct");
   const [currentStep, setCurrentStep] = useState(0);
+  const totalSteps = 7;
 
   const handleGoBack = () => {
     navigate('/payment-success');
@@ -51,9 +56,6 @@ const InstallESIMPage: React.FC = () => {
     navigate("/plan-details");
   };
 
-  // Array of step indicators
-  const stepIndicators = Array(7).fill(0);
-
   return (
     <PageLayout 
       showBackButton={true} 
@@ -62,90 +64,18 @@ const InstallESIMPage: React.FC = () => {
     >
       <h1 className="text-[40px] font-semibold mb-8">Install eSIM</h1>
       
-      {/* Installation method tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-        <TabsList className="grid grid-cols-3 bg-worldcoin-lightGray rounded-full p-1 h-14">
-          <TabsTrigger
-            value="direct"
-            className={`rounded-full text-base ${
-              activeTab === "direct" ? "bg-black text-white" : "text-black"
-            }`}
-          >
-            Direct
-          </TabsTrigger>
-          <TabsTrigger
-            value="qrcode"
-            className={`rounded-full text-base ${
-              activeTab === "qrcode" ? "bg-black text-white" : "text-black"
-            }`}
-          >
-            QR Code
-          </TabsTrigger>
-          <TabsTrigger
-            value="manual"
-            className={`rounded-full text-base ${
-              activeTab === "manual" ? "bg-black text-white" : "text-black"
-            }`}
-          >
-            Manual
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
+      <InstallationTabs activeTab={activeTab} setActiveTab={setActiveTab} />
       
-      {/* Installation area - Placeholder */}
-      <div className="bg-worldcoin-lightGray rounded-xl h-[300px] w-full mb-8 flex items-center justify-center">
-        {activeTab === "direct" && (
-          <div className="text-center p-4">
-            <p className="text-worldcoin-textGray">Direct installation content would go here</p>
-          </div>
-        )}
-        {activeTab === "qrcode" && (
-          <div className="text-center p-4">
-            <p className="text-worldcoin-textGray">QR Code installation content would go here</p>
-          </div>
-        )}
-        {activeTab === "manual" && (
-          <div className="text-center p-4">
-            <p className="text-worldcoin-textGray">Manual installation content would go here</p>
-          </div>
-        )}
-      </div>
+      <InstallationContent activeTab={activeTab} />
       
-      {/* Installation note */}
       <p className="text-center text-worldcoin-textGray text-lg mb-10">
         Ensure you have a stable internet connection<br />
         before starting the installation process.
       </p>
       
-      {/* Step indicators */}
-      <div className="flex justify-center space-x-2 mb-10">
-        {stepIndicators.map((_, index) => (
-          <div 
-            key={index}
-            className={`h-2 w-2 rounded-full ${
-              index === currentStep ? "bg-black" : "bg-gray-300"
-            }`}
-          />
-        ))}
-      </div>
+      <StepIndicators currentStep={currentStep} totalSteps={totalSteps} />
       
-      {/* Install button */}
-      {isWorldApp ? (
-        <button
-          onClick={handleInstallNow}
-          className="w-full text-center py-4 text-white font-semibold text-lg rounded-full bg-black mb-6"
-          id="minikit-primary-button"
-        >
-          Install Now
-        </button>
-      ) : (
-        <button
-          onClick={handleInstallNow}
-          className="w-full text-center py-4 text-white font-semibold text-lg rounded-full bg-black mb-6"
-        >
-          Install Now
-        </button>
-      )}
+      <InstallButton isWorldApp={isWorldApp} onClick={handleInstallNow} />
     </PageLayout>
   );
 };
