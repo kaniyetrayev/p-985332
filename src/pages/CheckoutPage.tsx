@@ -65,7 +65,7 @@ const CheckoutPage: React.FC = () => {
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent side="bottom" className="px-6 py-6 rounded-t-[20px]">
+          <SheetContent side="bottom" className="px-6 pb-6 pt-10 rounded-t-[20px]">
             <SheetHeader className="text-left mb-6">
               <SheetTitle className="text-[32px] font-semibold">Taxes</SheetTitle>
             </SheetHeader>
