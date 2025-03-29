@@ -20,7 +20,7 @@ const CheckoutPage: React.FC = () => {
       showBackButton={true}
       onBackClick={handleGoBack}
     >
-      <h1 className="text-5xl font-bold mb-8">Checkout</h1>
+      <h1 className="text-4xl font-semibold mb-8">Checkout</h1>
       
       <div className="flex items-start justify-between mb-6">
         <div>
@@ -59,7 +59,7 @@ const CheckoutPage: React.FC = () => {
       <div className="border-t border-gray-200 pt-6 mb-4">
         <div className="flex justify-between">
           <span className="text-worldcoin-textGray text-lg">Total</span>
-          <span className="text-2xl font-bold">${total.toFixed(2)}</span>
+          <span className="text-2xl font-semibold">${total.toFixed(2)}</span>
         </div>
       </div>
     </PageLayout>
