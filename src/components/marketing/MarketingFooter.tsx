@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Button, Text } from "@worldcoin/mini-apps-ui-kit-react";
 
 export const MarketingFooter: React.FC = () => {
   const handleSubscribe = (e: React.FormEvent) => {
@@ -15,16 +14,15 @@ export const MarketingFooter: React.FC = () => {
         onSubmit={handleSubscribe}
         className="flex w-full max-w-[375px] flex-col items-stretch pt-4 px-6 max-md:px-5"
       >
-        <Button 
+        <button
           type="submit"
-          variant="primary"
           className="shadow-[0px_5px_10px_rgba(25,28,32,0.2)] flex w-full items-stretch text-base text-white font-semibold whitespace-nowrap tracking-[0px]"
         >
           <div className="self-stretch bg-[rgba(25,28,32,1)] border min-w-60 w-full gap-1 overflow-hidden h-full flex-1 shrink basis-[0%] p-4 rounded-[100px] border-[rgba(25,28,32,1)] border-solid">
             Subscribe
           </div>
-        </Button>
-        <Text variant="caption" className="text-[#657080] text-center text-[13px] font-normal leading-none tracking-[0px] mt-4">
+        </button>
+        <p className="text-[#657080] text-center text-[13px] font-normal leading-none tracking-[0px] mt-4">
           By continuing, you accept Gigs{" "}
           <a href="#terms" className="underline">
             terms
@@ -34,7 +32,7 @@ export const MarketingFooter: React.FC = () => {
             conditions
           </a>
           .
-        </Text>
+        </p>
       </form>
       <div className="flex w-full flex-col items-center pt-[21px] pb-2 px-[38px] max-md:px-5">
         <div className="bg-neutral-900 flex w-[134px] shrink-0 h-[5px] rounded-[100px]" />

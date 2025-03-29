@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Text } from "@worldcoin/mini-apps-ui-kit-react";
 
 export const MarketingHero: React.FC = () => {
   return (
@@ -37,12 +36,12 @@ export const MarketingHero: React.FC = () => {
         </div>
       </div>
       <div className="self-stretch z-0 flex w-full flex-col items-stretch text-[#191C20] text-center justify-center mt-8 px-4">
-        <Text variant="heading1" className="text-[34px] font-bold leading-10 tracking-[0px] mix-blend-multiply">
+        <h1 className="text-[34px] font-bold leading-10 tracking-[0px] mix-blend-multiply">
           Explore World Connect Unlimited
-        </Text>
-        <Text variant="paragraph1" className="text-base font-medium tracking-[0px] mt-3">
+        </h1>
+        <p className="text-base font-medium tracking-[0px] mt-3">
           Just $35 monthly
-        </Text>
+        </p>
       </div>
     </section>
   );
