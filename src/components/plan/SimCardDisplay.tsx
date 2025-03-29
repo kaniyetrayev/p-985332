@@ -16,7 +16,7 @@ export const SimCardDisplay: React.FC<SimCardDisplayProps> = ({ phoneNumber, pla
               <p className="text-gray-600 font-medium">ACME</p>
             </div>
             <div>
-              <p className="text-xl font-medium">Unlimited</p>
+              <p className="text-xl font-medium">{planName}</p>
               <div className="absolute bottom-6 right-6">
                 <img 
                   src="/lovable-uploads/3ed3348e-514a-4fb4-8602-7043d056f816.png" 
@@ -32,7 +32,7 @@ export const SimCardDisplay: React.FC<SimCardDisplayProps> = ({ phoneNumber, pla
         </div>
       </div>
       
-      <h2 className="text-2xl font-bold mb-6">Next Gen Unlimited</h2>
+      <h2 className="text-2xl font-bold mb-6">{planName}</h2>
     </div>
   );
 };
