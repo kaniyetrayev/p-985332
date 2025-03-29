@@ -44,8 +44,8 @@ export const DetailsSection: React.FC<DetailsSectionProps> = ({
               index !== details.length - 1 ? "border-b border-gray-100" : ""
             }`}
           >
-            <span className="text-worldcoin-textGray">{detail.label}</span>
-            <div className="flex items-center">
+            <span className="text-worldcoin-textGray text-left">{detail.label}</span>
+            <div className="flex items-center text-right">
               <span className="font-medium">{detail.value}</span>
               {detail.label === "Phone number" && onCopy && (
                 <button 

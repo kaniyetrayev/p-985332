@@ -32,8 +32,8 @@ export const DataUsageSection: React.FC<DataUsageProps> = ({
       <Card className="bg-white rounded-xl shadow-sm">
         <CardContent className="p-5">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-worldcoin-textGray">Used</span>
-            <div className="flex items-center">
+            <span className="text-worldcoin-textGray text-left">Used</span>
+            <div className="flex items-center text-right">
               <span className="font-medium">
                 {usedData.toFixed(1)} GB / {totalData} GB
               </span>
@@ -46,22 +46,22 @@ export const DataUsageSection: React.FC<DataUsageProps> = ({
           />
 
           <div className="flex justify-between text-sm text-worldcoin-textGray mb-4">
-            <span>{usagePercentage.toFixed(0)}% used</span>
-            <span>{dataRemaining.toFixed(1)} GB left</span>
+            <span className="text-left">{usagePercentage.toFixed(0)}% used</span>
+            <span className="text-right">{dataRemaining.toFixed(1)} GB left</span>
           </div>
 
           <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-            <span className="text-worldcoin-textGray">Resets on</span>
-            <span className="font-medium">{resetDate}</span>
+            <span className="text-worldcoin-textGray text-left">Resets on</span>
+            <span className="font-medium text-right">{resetDate}</span>
           </div>
 
           <div className="mt-6">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-worldcoin-textGray flex items-center gap-1">
+              <span className="text-worldcoin-textGray flex items-center gap-1 text-left">
                 <BarChart3 className="w-4 h-4" />
                 Daily average
               </span>
-              <span className="font-medium text-sm">0.2 GB/day</span>
+              <span className="font-medium text-sm text-right">0.2 GB/day</span>
             </div>
             <div className="px-2">
               <Slider defaultValue={[20]} max={100} step={1} disabled className="cursor-default" />
