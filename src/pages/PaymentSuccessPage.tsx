@@ -6,7 +6,6 @@ import { Check } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useWindowSize } from "@/hooks/use-window-size";
 import { MiniKit } from "@worldcoin/minikit-js";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const PaymentSuccessPage: React.FC = () => {
   const navigate = useNavigate();
@@ -71,26 +70,23 @@ const PaymentSuccessPage: React.FC = () => {
         </p>
       </div>
       
-      {/* Tab bar at bottom */}
+      {/* Activate buttons at bottom matching the screenshot */}
       <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
-        <Tabs defaultValue="activate-now" className="w-full">
-          <TabsList className={`grid w-full grid-cols-2 h-14 ${isWorldApp ? "bg-worldcoin-gray" : "bg-gray-100"}`}>
-            <TabsTrigger 
-              value="activate-now" 
-              className={`text-base font-medium rounded-l-full data-[state=active]:${isWorldApp ? "bg-worldcoin-blue" : "bg-black"} data-[state=active]:text-white`}
-              onClick={handleActivateNow}
-            >
-              Activate now
-            </TabsTrigger>
-            <TabsTrigger 
-              value="activate-later" 
-              className="text-base font-medium rounded-r-full data-[state=active]:bg-black data-[state=active]:text-white"
-              onClick={handleActivateLater}
-            >
-              Activate later
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
+        <button
+          onClick={handleActivateNow}
+          className={`w-full py-4 mb-4 rounded-full text-white text-center text-lg font-medium ${
+            isWorldApp ? "bg-worldcoin-blue" : "bg-black"
+          }`}
+        >
+          Activate now
+        </button>
+        
+        <button
+          onClick={handleActivateLater}
+          className="w-full py-3 mb-6 text-center text-lg font-medium"
+        >
+          Activate later
+        </button>
       </div>
     </PageLayout>
   );
