@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
@@ -26,19 +25,26 @@ export const MarketingFooter: React.FC = () => {
     navigate('/subscribe');
   };
 
-  const handleBackToHome = () => {
-    navigate('/');
+  const handleContinue = () => {
+    // If on subscribe page, navigate to checkout
+    if (location.pathname === '/subscribe') {
+      navigate('/checkout');
+    } else {
+      // Otherwise go home
+      navigate('/');
+    }
   };
 
   // Determine which buttons to show based on current route
   const isSubscribePage = location.pathname === '/subscribe';
+  const isCheckoutPage = location.pathname === '/checkout';
 
   return (
     <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} fixed bottom-0 left-0 w-full z-50 border-t border-[#E5E7EB]`}>
       <div className="flex w-full flex-col items-center px-6 py-4">
         {isSubscribePage ? (
           <button
-            onClick={handleBackToHome}
+            onClick={handleContinue}
             className="w-full"
           >
             <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
@@ -46,7 +52,20 @@ export const MarketingFooter: React.FC = () => {
                 ? "bg-[#3D7DFF]" 
                 : "bg-[#191C20]"
             }`}>
-              Back to Home
+              Continue
+            </div>
+          </button>
+        ) : isCheckoutPage ? (
+          <button
+            onClick={() => navigate('/payment')}
+            className="w-full"
+          >
+            <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
+              isWorldApp 
+                ? "bg-[#3D7DFF]" 
+                : "bg-[#191C20]"
+            }`}>
+              Continue to Payment
             </div>
           </button>
         ) : (
