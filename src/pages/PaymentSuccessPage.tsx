@@ -70,7 +70,7 @@ const PaymentSuccessPage: React.FC = () => {
         </p>
       </div>
       
-      {/* Activate buttons at bottom matching the screenshot */}
+      {/* Activate buttons fixed at bottom */}
       <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
         <button
           onClick={handleActivateNow}
