@@ -39,12 +39,12 @@ const PaymentSuccessPage: React.FC = () => {
 
   const handleActivateNow = () => {
     console.log("Activate now");
-    // Handle activation logic here
+    navigate("/install-esim");
   };
 
   const handleActivateLater = () => {
     console.log("Activate later");
-    navigate("/");
+    navigate("/plan-details");
   };
 
   // Use MiniKit UI components if available

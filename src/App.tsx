@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import SubscribePage from "./pages/SubscribePage";
 import CheckoutPage from "./pages/CheckoutPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
+import InstallESIMPage from "./pages/InstallESIMPage";
+import PlanDetailsPage from "./pages/PlanDetailsPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
             <Route path="/subscribe" element={<SubscribePage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/payment-success" element={<PaymentSuccessPage />} />
+            <Route path="/install-esim" element={<InstallESIMPage />} />
+            <Route path="/plan-details" element={<PlanDetailsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
