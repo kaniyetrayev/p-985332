@@ -40,8 +40,8 @@ export const DetailsSection: React.FC<DetailsSectionProps> = ({
         {details.map((detail, index) => (
           <div 
             key={index} 
-            className={`flex justify-between items-center ${
-              index !== details.length - 1 ? "pb-4 mb-4 border-b border-gray-100" : ""
+            className={`flex justify-between items-center py-1.5 ${
+              index !== details.length - 1 ? "border-b border-gray-100" : ""
             }`}
           >
             <span className="text-worldcoin-textGray">{detail.label}</span>

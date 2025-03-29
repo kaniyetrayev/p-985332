@@ -48,7 +48,7 @@ export const DetailSection: React.FC<DetailSectionProps> = ({
         id={isWorldApp ? "minikit-card" : ""}
       >
         {items.map((item, index) => (
-          <div key={index} className="flex justify-between py-3 border-b border-gray-100 last:border-0">
+          <div key={index} className="flex justify-between py-2 border-b border-gray-100 last:border-0">
             <span className={`${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-500'}`}>{item.label}</span>
             <div className="flex items-center">
               <span className={`font-medium ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{item.value}</span>

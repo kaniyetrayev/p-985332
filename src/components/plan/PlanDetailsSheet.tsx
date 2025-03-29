@@ -15,15 +15,15 @@ interface FeatureGroupProps {
 
 const FeatureGroup: React.FC<FeatureGroupProps> = ({ icon, title, features, isWorldApp }) => {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 mb-8">
       <div className="flex-shrink-0 mt-1">
         {icon}
       </div>
-      <div className="space-y-3">
-        <h3 className={`text-xl font-bold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{title}</h3>
-        <ul className="space-y-3">
+      <div>
+        <h3 className={`text-xl font-bold mb-2 ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{title}</h3>
+        <ul className="space-y-1">
           {features.map((feature, index) => (
-            <li key={index} className={`${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-600'}`}>{feature}</li>
+            <li key={index} className={`${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-600'} leading-tight py-1`}>{feature}</li>
           ))}
         </ul>
       </div>
@@ -89,9 +89,9 @@ export const PlanDetailsSheet: React.FC<PlanDetailsSheetProps> = ({
         className={`h-[90vh] rounded-t-[20px] p-6 pb-10 ${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'}`}
         id={isWorldApp ? "minikit-sheet" : ""}
       >
-        <h2 className={`text-4xl font-bold mb-8 ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>Details</h2>
+        <h2 className={`text-4xl font-bold mb-6 ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>Details</h2>
         
-        <div className="space-y-10">
+        <div>
           {featureGroups.map((group, index) => (
             <FeatureGroup
               key={index}

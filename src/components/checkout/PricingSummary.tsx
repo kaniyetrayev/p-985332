@@ -65,15 +65,15 @@ export const PricingSummary: React.FC<PricingSummaryProps> = ({
             className={`px-6 pb-10 pt-10 rounded-t-[20px] ${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'}`}
             id={isWorldApp ? "minikit-sheet" : ""}
           >
-            <SheetHeader className="text-left mb-8">
+            <SheetHeader className="text-left mb-6">
               <SheetTitle className={`text-4xl font-bold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>
                 Taxes
               </SheetTitle>
             </SheetHeader>
             
-            <div className="space-y-4">
+            <div>
               {taxDetails.map((tax, index) => (
-                <div key={index} className="flex justify-between items-center py-3">
+                <div key={index} className="flex justify-between items-center py-1.5">
                   <span className={`text-[15px] ${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-600'}`}>
                     {tax.name}
                   </span>
@@ -83,7 +83,7 @@ export const PricingSummary: React.FC<PricingSummaryProps> = ({
                 </div>
               ))}
               
-              <div className="pt-6 mt-6 border-t border-gray-200">
+              <div className="pt-4 mt-4 border-t border-gray-200">
                 <div className="flex justify-between items-center">
                   <span className={`text-[15px] font-medium ${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-600'}`}>
                     Total taxes
