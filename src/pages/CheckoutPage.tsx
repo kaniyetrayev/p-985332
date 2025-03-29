@@ -27,18 +27,11 @@ const CheckoutPage: React.FC = () => {
           <h2 className="text-[15px] font-semibold mb-1">World Connect Unlimited</h2>
           <p className="text-worldcoin-textGray text-[15px]">{phoneNumber}</p>
         </div>
-        <div className="bg-worldcoin-lightGray p-3 rounded-lg">
-          <div className="flex flex-col items-end">
-            <span className="text-xs text-worldcoin-textGray mb-1">ACME</span>
-            <span className="text-base font-medium">Unlimited</span>
-          </div>
-          <div className="flex justify-end mt-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="5" width="20" height="14" rx="2" stroke="black" strokeWidth="1.5"/>
-              <path d="M2 10H22" stroke="black" strokeWidth="1.5"/>
-            </svg>
-          </div>
-        </div>
+        <img 
+          src="/lovable-uploads/cb8be779-b5ef-404f-bf8c-259856d74ea0.png" 
+          alt="ACME Unlimited Card" 
+          className="h-20 rounded-lg"
+        />
       </div>
       
       <div className="border-t border-gray-200 pt-5 pb-2">
