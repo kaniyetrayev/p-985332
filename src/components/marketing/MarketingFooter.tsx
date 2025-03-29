@@ -27,16 +27,16 @@ export const MarketingFooter: React.FC = () => {
   };
 
   return (
-    <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} mt-[109px] max-md:mt-10`}>
+    <footer className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} mt-[60px] max-md:mt-6 w-full`}>
       <form
         onSubmit={handleSubscribe}
-        className="flex w-full max-w-[375px] flex-col items-stretch px-6 max-md:px-5"
+        className="flex w-full flex-col items-center px-6 pb-4"
       >
         <button
           type="submit"
-          className="flex w-full items-stretch text-base font-semibold whitespace-nowrap tracking-[0px]"
+          className="w-full"
         >
-          <div className={`w-full py-4 rounded-[100px] text-white text-center ${
+          <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
             isWorldApp 
               ? "bg-[#3D7DFF]" 
               : "bg-[#191C20]"
@@ -59,7 +59,7 @@ export const MarketingFooter: React.FC = () => {
           )}
         </p>
       </form>
-      <div className="flex w-full flex-col items-center pt-[21px] pb-2 px-[38px] max-md:px-5">
+      <div className="flex w-full flex-col items-center pt-4 pb-2">
         <div className={`${isWorldApp ? 'bg-[#3D7DFF]' : 'bg-neutral-900'} flex w-[134px] shrink-0 h-[5px] rounded-[100px]`} />
       </div>
     </footer>

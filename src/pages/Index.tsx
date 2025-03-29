@@ -1,3 +1,4 @@
+
 import { MarketingApp } from "@/components/marketing/MarketingApp";
 
 const Index = () => {

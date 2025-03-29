@@ -11,13 +11,13 @@ export const MarketingApp: React.FC = () => {
   const isWorldApp = MiniKit.isInstalled();
 
   return (
-    <div className="flex max-w-[927px] flex-col px-20 max-md:pl-5">
-      <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} w-[375px] max-w-full overflow-hidden rounded-[32px]`}>
+    <div className="w-full">
+      <div className={`${isWorldApp ? 'bg-[#F8F8F8]' : 'bg-white'} w-full max-w-[450px] mx-auto`}>
         <div>
           <MarketingHeader />
           <div className="w-full py-4">
             <MarketingHero />
-            <div className="w-full mt-5 px-6 max-md:px-5">
+            <div className="w-full mt-5 px-6">
               <MarketingFeatures />
               <MarketingChecks />
             </div>

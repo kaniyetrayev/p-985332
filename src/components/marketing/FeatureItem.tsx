@@ -16,16 +16,16 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
   const isWorldApp = MiniKit.isInstalled();
 
   return (
-    <div className="flex w-full items-stretch gap-2">
-      <div className="flex min-w-60 w-full gap-3 overflow-hidden h-full flex-1 shrink basis-[0%] py-2">
-        <div className="flex flex-col overflow-hidden items-center justify-center w-6">
+    <div className="flex w-full items-stretch gap-2 my-4">
+      <div className="flex w-full gap-3 py-2">
+        <div className="flex flex-col items-center justify-center w-6">
           <img
             src={icon}
             className="aspect-[1] object-contain w-6"
             alt={`${title} icon`}
           />
         </div>
-        <div className="min-w-60 flex-1 shrink basis-[0%]">
+        <div className="flex-1">
           <div className={`${isWorldApp ? 'text-[#3D7DFF]' : 'text-[#191C20]'} text-base font-semibold tracking-[0px]`}>
             {title}
           </div>
