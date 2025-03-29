@@ -5,7 +5,6 @@ import Confetti from "react-confetti";
 import { Check } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useWindowSize } from "@/hooks/use-window-size";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { MiniKit } from "@worldcoin/minikit-js";
 
 const PaymentSuccessPage: React.FC = () => {
@@ -71,29 +70,26 @@ const PaymentSuccessPage: React.FC = () => {
         </p>
       </div>
       
-      {/* MiniKit Tab Bar for Activate Now/Later */}
+      {/* Activate buttons at bottom */}
       <div className="fixed bottom-0 left-0 w-full px-6 pb-10">
-        <Tabs defaultValue="activate-now" className="w-full">
-          <TabsList className={`w-full grid grid-cols-2 rounded-full ${isWorldApp ? 'bg-worldcoin-lightGray' : 'bg-gray-100'}`}>
-            <TabsTrigger 
-              value="activate-now" 
-              className={`rounded-full py-3 text-lg font-medium data-[state=active]:${isWorldApp ? 'bg-worldcoin-blue text-white' : 'bg-black text-white'}`}
-              onClick={handleActivateNow}
-            >
-              Activate now
-            </TabsTrigger>
-            <TabsTrigger 
-              value="activate-later" 
-              className="rounded-full py-3 text-lg font-medium data-[state=active]:bg-transparent"
-              onClick={handleActivateLater}
-            >
-              Activate later
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
+        <button
+          onClick={handleActivateNow}
+          className={`w-full py-4 mb-4 rounded-full text-white text-center text-lg font-medium ${
+            isWorldApp ? "bg-worldcoin-blue" : "bg-black"
+          }`}
+        >
+          Activate now
+        </button>
+        
+        <button
+          onClick={handleActivateLater}
+          className="w-full py-3 mb-6 text-center text-lg font-medium"
+        >
+          Activate later
+        </button>
         
         {/* Home indicator bar */}
-        <div className="flex justify-center w-full mt-6">
+        <div className="flex justify-center w-full">
           <div className="w-[134px] h-[5px] bg-gray-900 rounded-full"></div>
         </div>
       </div>
