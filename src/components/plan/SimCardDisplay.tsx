@@ -9,8 +9,8 @@ interface SimCardDisplayProps {
 export const SimCardDisplay: React.FC<SimCardDisplayProps> = ({ phoneNumber, planName }) => {
   return (
     <div className="flex flex-col items-center mb-8">
-      <div className="bg-gray-100 rounded-xl w-full max-w-[300px] h-[180px] p-6 mb-4 relative">
-        <div className="flex flex-col justify-between h-full">
+      <div className="bg-gray-100 rounded-xl w-full max-w-[300px] h-[180px] p-6 mb-4 relative overflow-hidden">
+        <div className="flex flex-col justify-between h-full relative z-10">
           <div>
             <p className="text-gray-600">ACME</p>
           </div>
@@ -18,7 +18,7 @@ export const SimCardDisplay: React.FC<SimCardDisplayProps> = ({ phoneNumber, pla
             <p className="text-xl font-medium">{planName}</p>
             <div className="absolute bottom-6 right-6">
               <img 
-                src="/lovable-uploads/3ca07b41-ed40-4bbd-ab2d-673189534185.png" 
+                src="/lovable-uploads/3ed3348e-514a-4fb4-8602-7043d056f816.png" 
                 alt="AT&T logo" 
                 className="h-6"
               />
