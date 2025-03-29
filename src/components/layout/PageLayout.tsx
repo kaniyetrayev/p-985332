@@ -65,7 +65,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       )}
 
       {/* Main Content */}
-      <div className="flex-1">
+      <div className="flex-1 px-6">
         {children}
       </div>
 
