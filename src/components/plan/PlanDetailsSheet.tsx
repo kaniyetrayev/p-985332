@@ -1,7 +1,6 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Globe, Phone, Video, MoreHorizontal } from "lucide-react";
-import { MiniKit } from "@worldcoin/minikit-js";
 import {
   Sheet,
   SheetContent,
@@ -20,7 +19,7 @@ const FeatureGroup: React.FC<FeatureGroupProps> = ({ icon, title, features, isWo
       <div className="flex-shrink-0 mt-1">
         {icon}
       </div>
-      <div className="space-y-2">
+      <div className="space-y-3">
         <h3 className={`text-xl font-bold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>{title}</h3>
         <ul className="space-y-3">
           {features.map((feature, index) => (
@@ -87,7 +86,7 @@ export const PlanDetailsSheet: React.FC<PlanDetailsSheetProps> = ({
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetContent 
         side="bottom" 
-        className={`h-[90vh] rounded-t-xl p-6 pb-10 ${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'}`}
+        className={`h-[90vh] rounded-t-[20px] p-6 pb-10 ${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'}`}
         id={isWorldApp ? "minikit-sheet" : ""}
       >
         <h2 className={`text-4xl font-bold mb-8 ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>Details</h2>

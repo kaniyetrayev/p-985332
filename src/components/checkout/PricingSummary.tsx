@@ -1,6 +1,7 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { MiniKit } from "@worldcoin/minikit-js";
 import {
   Sheet,
   SheetContent,
@@ -27,6 +28,20 @@ export const PricingSummary: React.FC<PricingSummaryProps> = ({
   total, 
   taxDetails 
 }) => {
+  const [isWorldApp, setIsWorldApp] = useState(false);
+
+  useEffect(() => {
+    const checkEnvironment = () => {
+      try {
+        setIsWorldApp(MiniKit.isInstalled());
+      } catch (error) {
+        console.error("Error checking MiniKit:", error);
+      }
+    };
+    
+    checkEnvironment();
+  }, []);
+
   return (
     <>
       <div className="border-t border-gray-200 pt-5 pb-2">
@@ -45,21 +60,37 @@ export const PricingSummary: React.FC<PricingSummaryProps> = ({
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent side="bottom" className="px-6 pb-6 pt-10 rounded-t-[20px]">
-            <SheetHeader className="text-left mb-6">
-              <SheetTitle className="text-[32px] font-semibold">Taxes</SheetTitle>
+          <SheetContent 
+            side="bottom" 
+            className={`px-6 pb-10 pt-10 rounded-t-[20px] ${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'}`}
+            id={isWorldApp ? "minikit-sheet" : ""}
+          >
+            <SheetHeader className="text-left mb-8">
+              <SheetTitle className={`text-4xl font-bold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>
+                Taxes
+              </SheetTitle>
             </SheetHeader>
+            
             <div className="space-y-4">
               {taxDetails.map((tax, index) => (
-                <div key={index} className="flex justify-between items-center">
-                  <span className="text-worldcoin-textGray text-[15px]">{tax.name}</span>
-                  <span className="text-[15px] font-semibold">${tax.amount.toFixed(2)}</span>
+                <div key={index} className="flex justify-between items-center py-3">
+                  <span className={`text-[15px] ${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-600'}`}>
+                    {tax.name}
+                  </span>
+                  <span className={`text-[15px] font-semibold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>
+                    ${tax.amount.toFixed(2)}
+                  </span>
                 </div>
               ))}
+              
               <div className="pt-6 mt-6 border-t border-gray-200">
                 <div className="flex justify-between items-center">
-                  <span className="text-worldcoin-textGray text-[15px] font-medium">Total taxes</span>
-                  <span className="text-[20px] font-semibold">${taxes.toFixed(2)}</span>
+                  <span className={`text-[15px] font-medium ${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-600'}`}>
+                    Total taxes
+                  </span>
+                  <span className={`text-[20px] font-semibold ${isWorldApp ? 'text-worldcoin-textDark' : ''}`}>
+                    ${taxes.toFixed(2)}
+                  </span>
                 </div>
               </div>
             </div>
