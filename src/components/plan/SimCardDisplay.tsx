@@ -22,13 +22,6 @@ export const SimCardDisplay: React.FC<SimCardDisplayProps> = ({ phoneNumber, pla
             </div>
             <div>
               <p className="text-xl font-medium">{planName}</p>
-              <div className="absolute bottom-6 right-6">
-                <img 
-                  src="/lovable-uploads/3ed3348e-514a-4fb4-8602-7043d056f816.png" 
-                  alt="AT&T logo" 
-                  className="h-6"
-                />
-              </div>
             </div>
           </div>
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
