@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Headphones } from "lucide-react";
@@ -7,6 +6,7 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { SimCardDisplay } from "@/components/plan/SimCardDisplay";
 import { ActionButtons } from "@/components/plan/ActionButtons";
 import { DetailsSection, DetailItem } from "@/components/plan/DetailsSection";
+import { DataUsageSection } from "@/components/plan/DataUsageSection";
 
 // Extended MiniKit type
 const ExtendedMiniKit = MiniKit as typeof MiniKit & {
@@ -31,6 +31,11 @@ const PlanDetailsPage: React.FC = () => {
     { label: "Subscription started", value: "Sunday, Feb 5, 2025" },
     { label: "Billing cycle", value: "Monthly" },
   ];
+
+  // Data usage details
+  const usedData = 4.7; // GB
+  const totalData = 15; // GB
+  const resetDate = "March 7, 2025";
 
   const handleGoBack = () => {
     navigate('/payment-success');
@@ -84,6 +89,13 @@ const PlanDetailsPage: React.FC = () => {
       
       {/* Action buttons */}
       <ActionButtons />
+      
+      {/* Data Usage Section */}
+      <DataUsageSection 
+        usedData={usedData}
+        totalData={totalData}
+        resetDate={resetDate}
+      />
       
       {/* SIM card details */}
       <DetailsSection 
