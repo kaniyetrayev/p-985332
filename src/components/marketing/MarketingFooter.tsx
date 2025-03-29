@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
@@ -29,7 +30,7 @@ export const MarketingFooter: React.FC = () => {
     if (location.pathname === '/subscribe') {
       navigate('/checkout');
     } else if (location.pathname === '/checkout') {
-      navigate('/payment'); // Navigate to payment page when implemented
+      navigate('/payment-success'); // Navigate to payment success page
     } else {
       // Otherwise go home
       navigate('/');
@@ -45,7 +46,7 @@ export const MarketingFooter: React.FC = () => {
       <footer className={`${isWorldApp ? 'bg-worldcoin-gray' : 'bg-white'} fixed bottom-0 left-0 w-full z-50 border-t border-[#E5E7EB]`}>
         <div className="flex w-full flex-col items-center px-6 py-4">
           <button
-            onClick={() => navigate('/payment')}
+            onClick={() => navigate('/payment-success')}
             className="w-full"
           >
             <div className={`w-full py-4 rounded-[100px] text-white text-center text-base font-semibold ${
