@@ -2,9 +2,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { useNavigate } from "react-router-dom";
 
 export const MarketingFooter: React.FC = () => {
   const [isWorldApp, setIsWorldApp] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if we're running in World App
@@ -18,12 +20,8 @@ export const MarketingFooter: React.FC = () => {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Subscription submitted");
-    
-    if (isWorldApp) {
-      // Use MiniKit for World App-specific functionality
-      console.log("Using World App specific features");
-    }
+    console.log("Navigating to subscribe page");
+    navigate('/subscribe');
   };
 
   return (
