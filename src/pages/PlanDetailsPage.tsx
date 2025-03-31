@@ -6,7 +6,8 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { SimCardDisplay } from "@/components/plan/SimCardDisplay";
 import { ActionButtons } from "@/components/plan/ActionButtons";
-import { DetailSection, DetailItem } from "@/components/plan/DetailSection";
+import { DetailSection } from "@/components/plan/DetailSection";
+import { DetailItemProps } from "@/components/common/DetailListItem";
 import { PlanDetailsSheet } from "@/components/plan/PlanDetailsSheet";
 import { CopyButton } from "@/components/plan/CopyButton";
 
@@ -23,18 +24,18 @@ const PlanDetailsPage: React.FC = () => {
   const planName = "Next Gen Unlimited";
   
   // SIM card details with phone number copy button
-  const simDetails: DetailItem[] = [
+  const simDetails: Omit<DetailItemProps, 'isWorldApp'>[] = [
     { 
       label: "Phone number", 
       value: phoneNumber,
-      actionButton: <CopyButton value={phoneNumber} onCopy={handleCopyPhoneNumber} />
+      actionElement: <CopyButton value={phoneNumber} onCopy={handleCopyPhoneNumber} />
     },
     { label: "Network provider", value: "AT&T" },
     { label: "Active since", value: "Sunday, Feb 5, 2025" },
   ];
   
   // Billing details
-  const billingDetails: DetailItem[] = [
+  const billingDetails: Omit<DetailItemProps, 'isWorldApp'>[] = [
     { label: "Next renewal", value: "Tuesday, March 7, 2025" },
     { label: "Subscription started", value: "Sunday, Feb 5, 2025" },
     { label: "Billing cycle", value: "Monthly" },
