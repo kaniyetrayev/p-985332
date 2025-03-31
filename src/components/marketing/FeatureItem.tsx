@@ -1,11 +1,11 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ReactNode } from "react";
 import { MiniKit } from "@worldcoin/minikit-js";
 
 interface FeatureItemProps {
   icon: string;
   title: string;
-  description: React.ReactNode;
+  description: ReactNode;
 }
 
 export const FeatureItem: React.FC<FeatureItemProps> = ({

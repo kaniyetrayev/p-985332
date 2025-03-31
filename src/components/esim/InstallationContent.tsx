@@ -1,28 +1,30 @@
 
 import React from "react";
+import { CardContainer } from "../common/CardContainer";
 
 interface InstallationContentProps {
   activeTab: string;
 }
 
 export const InstallationContent: React.FC<InstallationContentProps> = ({ activeTab }) => {
+  const getContent = () => {
+    switch (activeTab) {
+      case "direct":
+        return <p className="text-worldcoin-textGray">Direct installation content would go here</p>;
+      case "qrcode":
+        return <p className="text-worldcoin-textGray">QR Code installation content would go here</p>;
+      case "manual":
+        return <p className="text-worldcoin-textGray">Manual installation content would go here</p>;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="bg-worldcoin-lightGray rounded-xl h-[300px] w-full mb-8 flex items-center justify-center">
-      {activeTab === "direct" && (
-        <div className="text-center p-4">
-          <p className="text-worldcoin-textGray">Direct installation content would go here</p>
-        </div>
-      )}
-      {activeTab === "qrcode" && (
-        <div className="text-center p-4">
-          <p className="text-worldcoin-textGray">QR Code installation content would go here</p>
-        </div>
-      )}
-      {activeTab === "manual" && (
-        <div className="text-center p-4">
-          <p className="text-worldcoin-textGray">Manual installation content would go here</p>
-        </div>
-      )}
-    </div>
+    <CardContainer className="bg-worldcoin-lightGray h-[300px] w-full mb-8 flex items-center justify-center">
+      <div className="text-center p-4">
+        {getContent()}
+      </div>
+    </CardContainer>
   );
 };

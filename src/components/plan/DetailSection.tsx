@@ -1,16 +1,10 @@
 
-import React, { useEffect, useState } from "react";
-import { MiniKit } from "@worldcoin/minikit-js";
-
-export interface DetailItem {
-  label: string;
-  value: string;
-  actionButton?: React.ReactNode;
-}
+import React from "react";
+import { DetailListItem, DetailItemProps } from "../common/DetailListItem";
 
 interface DetailSectionProps {
   title: string;
-  items: DetailItem[];
+  items: Omit<DetailItemProps, 'isWorldApp'>[];
   actionButtonText?: string;
   onActionClick?: () => void;
   isWorldApp?: boolean;
@@ -48,13 +42,13 @@ export const DetailSection: React.FC<DetailSectionProps> = ({
         id={isWorldApp ? "minikit-card" : ""}
       >
         {items.map((item, index) => (
-          <div key={index} className="flex justify-between py-1 border-b border-gray-100 last:border-0">
-            <span className={`${isWorldApp ? 'text-worldcoin-textGray' : 'text-gray-500'} text-left w-1/2`}>{item.label}</span>
-            <div className="flex items-center justify-end w-1/2">
-              <span className={`font-medium ${isWorldApp ? 'text-worldcoin-textDark' : ''} text-right`}>{item.value}</span>
-              {item.actionButton}
-            </div>
-          </div>
+          <DetailListItem
+            key={index}
+            label={item.label}
+            value={item.value}
+            actionElement={item.actionElement}
+            isWorldApp={isWorldApp}
+          />
         ))}
       </div>
     </div>
